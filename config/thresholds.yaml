@@ -1,0 +1,11 @@
+risk_tiers:
+  CRITICAL: 0.75
+  HIGH: 0.55
+  MEDIUM: 0.35
+  LOW: 0.0
+
+actions:
+  CRITICAL: "Immediate manager intervention required"
+  HIGH: "Schedule retention conversation within 2 weeks"
+  MEDIUM: "Monitor - flag in next quarterly review"
+  LOW: "No action needed - continue standard engagement"

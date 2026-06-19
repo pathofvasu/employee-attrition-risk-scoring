@@ -1,0 +1,30 @@
+project:
+  name: "Employee Attrition Risk Scoring System"
+  version: "1.0"
+
+data:
+  synthetic_fallback: true
+  test_size: 0.2
+  random_state: 42
+
+features:
+  target: "Attrition"
+
+model:
+  logistic_regression:
+    max_iter: 1000
+    C: 0.5
+    class_weight: "balanced"
+
+  random_forest:
+    n_estimators: 150
+    max_depth: 8
+    min_samples_leaf: 5
+    class_weight: "balanced"
+
+training:
+  cv_folds: 5
+  calibration_cv: 3
+
+evaluation:
+  prediction_threshold: 0.35

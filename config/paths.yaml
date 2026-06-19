@@ -1,0 +1,19 @@
+paths:
+  raw_data: "data/"
+  output: "outputs/"
+  fairness: "fairness/"
+  model_store: "models/"
+  artifacts: "artifacts/"
+  artifact_models: "artifacts/models/"
+  artifact_encoders: "artifacts/encoders/"
+  artifact_scaler: "artifacts/scaler/"
+  artifact_model_selection: "artifacts/model_selection/"
+  reports: "reports/"
+  reports_model_selection: "reports/model_selection/"
+  reports_fairness: "reports/fairness/"
+  reports_dashboard: "reports/dashboard/"
+  dashboard: "reports/dashboard/risk_system_dashboard.png"
+  synthetic_data: "data/raw/attrition_synthetic.csv"
+
+data:
+  raw: "data/raw/WA_Fn-UseC_-HR-Employee-Attrition.csv"
