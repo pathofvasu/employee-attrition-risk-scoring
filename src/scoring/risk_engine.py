@@ -52,7 +52,7 @@ def compute_risk_score(proba: float, thresholds=None, actions=None) -> dict:
             "color": COLORS["LOW"]}
 
 
-def generate_risk_table(X_test, y_test, probabilities, config=None):
+def generate_risk_table(X_test, y_test, probabilities, prediction_threshold=0.37, config=None):
     config = config or {}
     thresholds = config.get("risk_tiers", DEFAULT_THRESHOLDS)
     actions = config.get("actions", DEFAULT_ACTIONS)
@@ -66,6 +66,7 @@ def generate_risk_table(X_test, y_test, probabilities, config=None):
         row.update({
             "true_attrition": y_test.iloc[i],
             "raw_proba": probabilities[i],
+            "predicted_label": int(probabilities[i] >= prediction_threshold),
             "risk_score": score["score"],
             "risk_tier": score["tier"],
             "action": score["action"]

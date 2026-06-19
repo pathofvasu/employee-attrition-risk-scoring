@@ -3,7 +3,7 @@ import json
 
 import joblib
 import pandas as pd
-from sklearn.model_selection import train_test_split
+from src.data.split import split_data
 
 from src.data.loader import load_data
 from src.explainability.importance import compute_feature_importance
@@ -73,12 +73,9 @@ def main():
     X = df.drop(columns=[target])
     y = df[target]
 
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y,
-        test_size=data_config.get("test_size", 0.2),
-        random_state=data_config.get("random_state", 42),
-        stratify=y
-    )
+    X_train, X_test, y_train, y_test = split_data(X, y, config=config)
+    logger.info("Data split into train and test sets")
+ 
 
     # ---------------- FEATURES ----------------
     X_train_enc, X_test_enc, encoders = encode_features(X_train, X_test)
